@@ -1,8 +1,13 @@
-const path = require("path") 
-const dotenv = require('dotenv')
+const path = require("path")
 const { DefinePlugin } = require('webpack')
 const HtmlWebpackPlugin = require("html-webpack-plugin") 
-const configuration = require("./src/config") 
+
+const dotenv = require('dotenv').config().parsed;
+const dotenvlocal = require('dotenv').config({
+  path: '.env.local'
+ , override: true 
+}).parsed;
+const config = Object.assign({}, dotenv, dotenvlocal);
  
 module.exports = { 
   entry: "./src/index.tsx",
@@ -14,7 +19,7 @@ module.exports = {
   devServer: {
     host: '0.0.0.0',
     allowedHosts: "all",
-    port: configuration.config().APP_PORT,
+    port: config.APP_PORT,
     historyApiFallback: true,
   },
   devtool: "source-map",
@@ -23,7 +28,10 @@ module.exports = {
     alias: {
       '@src': path.resolve(__dirname, 'src/'),
       '@component': path.resolve(__dirname, 'src/component/'),
+      '@usecase': path.resolve(__dirname, 'src/usecase/'),
+      '@service': path.resolve(__dirname, 'src/service/'),
     },
+    fallback: { "crypto": false }
   }, 
   output: { 
     path: path.join(__dirname, "/dist"), 
@@ -59,7 +67,7 @@ module.exports = {
       template: "./public/index.html"  // Spécifie notre template
     }),
     new DefinePlugin({
-      'process.env': JSON.stringify(configuration.config(dotenv.config().parsed))
-    })
+      'process.env': JSON.stringify(config)
+    }),
   ]
 }

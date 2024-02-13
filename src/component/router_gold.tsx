@@ -7,6 +7,7 @@ import { routerStore } from '@component/routerStore';
 
 export const RouterGold = () => {
   const routeur = routerStore();
+  console.log(routeur)
   switch (routeur.route) {
     case '/':
       return <div><Guard/><Home /></div>

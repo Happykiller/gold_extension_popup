@@ -6,6 +6,8 @@ import { Box, Button, TextField } from '@mui/material';
 import '@component/login.scss';
 import { routerStore } from '@component/routerStore';
 import { contextStore } from '@component/contextStore';
+import { AuthUsecaseModel } from '@usecase/model/auth.usecase.model';
+import inversify from '@src/common/inversify';
 
 export const Login = () => {
   const routeur = routerStore();
@@ -20,11 +22,22 @@ export const Login = () => {
     errorMessage = <div><Trans>login.error</Trans><Trans>{error.message}</Trans></div>
   }
 
-  const handleClick = () => {
-    contextStore.setState({ 
-      code: currentLogin
+  const handleClick = async (event: React.SyntheticEvent) => {
+    event.preventDefault();
+    const response:AuthUsecaseModel = await inversify.authUsecase.execute({
+      login: currentLogin,
+      password: currentPassword
     });
-    routeur.navigateTo('/login');
+    if (response.data) {
+      contextStore.setState({ 
+        id: response.data.id,
+        code: response.data.code,
+        access_token: response.data.access_token,
+        name_first: response.data.name_first,
+        name_last: response.data.name_last,
+      });
+      routeur.navigateTo('/');
+    }
   }
 
   return (

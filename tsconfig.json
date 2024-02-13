@@ -1,15 +1,19 @@
 {
   "compilerOptions": {
+    "types": ["chrome"],
     "outDir": "./dist/",
     "sourceMap": true,
     "noImplicitAny": true,
     "module": "commonjs",
+    "allowJs": true,
     "target": "es2015",
     "jsx": "react",
     "baseUrl": "./",
     "paths": {
       "@src/*": ["src/*"],
-      "@component/*": ["src/component/*"]
+      "@component/*": ["src/component/*"],
+      "@usecase/*": ["src/usecase/*"],
+      "@service/*": ["src/service/*"]
     },
     "resolveJsonModule": true
   },
