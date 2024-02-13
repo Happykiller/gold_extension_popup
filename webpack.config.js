@@ -56,7 +56,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({      // Instancie le plugin
-      template: "./src/index.html"  // Spécifie notre template
+      template: "./public/index.html"  // Spécifie notre template
     }),
     new DefinePlugin({
       'process.env': JSON.stringify(configuration.config(dotenv.config().parsed))
