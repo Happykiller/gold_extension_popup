@@ -1,16 +1,15 @@
 import * as React from 'react';
-import { useLocation, Navigate } from "react-router-dom";
 
 import { ContextStore, contextStore } from '@component/contextStore';
+import { routerStore } from './routerStore';
 
-export function Guard({ children }: { children: JSX.Element }) {
-  let location = useLocation();
-  
+export function Guard() {
+  const routeur = routerStore();
   const context:ContextStore = contextStore();
 
   if (!context.code) {
-    return <Navigate to="/login" state={{ from: location }} replace />;
-  } else {
-    return children;
+    routeur.navigateTo('/login');
   }
+
+  return (<div/>);
 }

@@ -1,14 +1,14 @@
 import * as React from 'react';
 import { Trans } from 'react-i18next';
 import { Done } from '@mui/icons-material';
-import { useNavigate } from "react-router-dom";
 import { Box, Button, TextField } from '@mui/material';
 
 import '@component/login.scss';
+import { routerStore } from '@component/routerStore';
 import { contextStore } from '@component/contextStore';
 
 export const Login = () => {
-  const navigate = useNavigate();
+  const routeur = routerStore();
   const [currentLogin, setCurrentLogin] = React.useState('');
   const [currentPassword, setCurrentPassword] = React.useState('');
 
@@ -24,7 +24,7 @@ export const Login = () => {
     contextStore.setState({ 
       code: currentLogin
     });
-    navigate("/");
+    routeur.navigateTo('/login');
   }
 
   return (
