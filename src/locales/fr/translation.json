@@ -1,5 +1,14 @@
 {
-  "app": {
-    "welcome": "Bienvenue :)"
+  "common": {
+    "done": "Entrer"
+  },
+  "home": {
+    "title": "Accueil"
+  },
+  "login": {
+    "title": "Authentification",
+    "login": "Identifiant",
+    "password": "Mot de passe",
+    "error": "Erreur : "
   }
 }
