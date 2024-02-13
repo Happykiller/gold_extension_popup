@@ -21,7 +21,7 @@ const contextPersist = persist<ContextStore>(
   }),
   {
       name: "gold-storage",
-      storage: createJSONStorage(() => sessionStorage),
+      storage: createJSONStorage(() => localStorage),
   }
 );
 
