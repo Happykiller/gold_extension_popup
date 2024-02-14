@@ -6,7 +6,7 @@ import { Box, Button, TextField } from '@mui/material';
 import '@component/login.scss';
 import { routerStore } from '@component/routerStore';
 import { contextStore } from '@component/contextStore';
-import { AuthUsecaseModel } from '@usecase/model/auth.usecase.model';
+import { AuthUsecaseModel } from '@src/usecase/auth/model/auth.usecase.model';
 import inversify from '@src/common/inversify';
 
 export const Login = () => {

@@ -1,5 +1,5 @@
 export enum ORDERS {
   AUTH = 'auth',
-  GET_SESSION = 'getSession',
+  HELLO = 'hello',
   GET_SEYSTEMINFOS = 'getSystemInfos'
 }

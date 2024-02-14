@@ -1,9 +1,9 @@
 import {describe, expect, test} from '@jest/globals';
 import { mock, MockProxy } from 'jest-mock-extended';
 
-import AuthUsecase from '@usecase/auth.usecase';
+import AuthUsecase from '@src/usecase/auth/auth.usecase';
 import { Inversify } from '@src/common/inversify';
-import { AuthUsecaseModel } from '@usecase/model/auth.usecase.model';
+import { AuthUsecaseModel } from '@src/usecase/auth/model/auth.usecase.model';
 import BackgroundService from '@service/background/background.service';
 
 describe('AuthUsecase', () => {
