@@ -13,13 +13,11 @@ export const Login = () => {
   const routeur = routerStore();
   const [currentLogin, setCurrentLogin] = React.useState('');
   const [currentPassword, setCurrentPassword] = React.useState('');
+  const [currentMsg, setCurrentMsg] = React.useState('');
 
   let errorMessage = <div></div>;
-  const error = {
-    message: 'coucou'
-  };
-  if(error) {
-    errorMessage = <div><Trans>login.error</Trans><Trans>{error.message}</Trans></div>
+  if(currentMsg) {
+    errorMessage = <div><Trans>login.error</Trans><Trans>{currentMsg}</Trans></div>
   }
 
   const handleClick = async (event: React.SyntheticEvent) => {
@@ -37,6 +35,8 @@ export const Login = () => {
         name_last: response.data.name_last,
       });
       routeur.navigateTo('/');
+    } else {
+      setCurrentMsg(response.message);
     }
   }
 

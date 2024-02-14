@@ -3,7 +3,8 @@
     "done": "Entrer"
   },
   "home": {
-    "title": "Accueil"
+    "title": "Accueil",
+    "name": "Entrer un nom"
   },
   "login": {
     "title": "Authentification",

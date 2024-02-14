@@ -29,7 +29,20 @@ export default class BackgroundServiceFake extends BackgroundService {
       } else {
         /* istanbul ignore next */
         response = {
-          message: CODES.FAIL_WRONG_CREDENTIAL
+          message: CODES.AUTH_FAIL_WRONG_CREDENTIAL
+        };
+      }
+    } else if (dto.name === ORDERS.HELLO) {
+      /* istanbul ignore next */
+      if (true) {
+        response = {
+          message: CODES.SUCCESS,
+          data: `hello: ${dto.data.name} from the background!`
+        };
+      } else {
+        /* istanbul ignore next */
+        response = {
+          message: CODES.HELLO_FAIL
         };
       }
     }

@@ -9,6 +9,7 @@ import { HelloUsecaseModel } from '@usecase/hello/model/hello.usecase.model';
 
 export const Home = () => {
   const [currentName, setCurrentName] = React.useState('');
+  const [currentMsg, setCurrentMsg] = React.useState('');
 
   const handleClick = async (event: React.SyntheticEvent) => {
     event.preventDefault();
@@ -16,17 +17,17 @@ export const Home = () => {
       name: currentName
     });
     if (response.data) {
-      console.log(response.data)
+      setCurrentMsg(response.data)
     }
   }
 
   return (
     <div className="login">
       <div className='title'>
-        <Trans>login.title</Trans>
+        <Trans>home.title</Trans>
       </div>
       <div>
-      <form
+        <form
           onSubmit={handleClick}
         >
           <Box
@@ -39,7 +40,7 @@ export const Home = () => {
           >
             <TextField
               sx={{ marginRight:1}}
-              label={<Trans>login.login</Trans>}
+              label={<Trans>home.name</Trans>}
               variant="standard"
               size="small"
               onChange={(e) => { 
@@ -55,6 +56,7 @@ export const Home = () => {
               disabled={!(currentName.length > 3)}
             ><Trans>common.done</Trans></Button>
           </Box>
+          {currentMsg}
         </form>
       </div>
     </div>
