@@ -1,18 +1,18 @@
 import {describe, expect, test} from '@jest/globals';
 import { mock, MockProxy } from 'jest-mock-extended';
 
-import AuthUsecase from '@src/usecase/auth/auth.usecase';
 import { Inversify } from '@src/common/inversify';
-import { AuthUsecaseModel } from '@src/usecase/auth/model/auth.usecase.model';
+import HelloUsecase from '@usecase/hello/hello.usecase';
 import BackgroundService from '@service/background/background.service';
+import { HelloUsecaseModel } from '@usecase/hello/model/hello.usecase.model';
 
-describe('AuthUsecase', () => {
+describe('HelloUsecase', () => {
   const mockInversify: MockProxy<Inversify> = mock<Inversify>();
   const mockBackgroundService: MockProxy<BackgroundService> = mock<BackgroundService>();
 
   mockInversify.backgroundService = mockBackgroundService;
 
-  const usecase: AuthUsecase = new AuthUsecase(mockInversify);
+  const usecase: HelloUsecase = new HelloUsecase(mockInversify);
 
   describe('#execute', () => {
 
@@ -26,17 +26,14 @@ describe('AuthUsecase', () => {
     it('should get the session id', async () => {
       // arrange
       mockBackgroundService.send.mockResolvedValue({
-        sessionId: '45645456'
+        data: 'Hello !'
       });
       // act
-      const response:AuthUsecaseModel = await usecase.execute({
-        login: 'test',
-        password: 'test'
+      const response:HelloUsecaseModel = await usecase.execute({
+        name: 'fab'
       });
       // assert
-      expect(response).toEqual({
-        sessionId: '45645456'
-      });
+      expect(response).toEqual('Hello !');
     });
 
   });

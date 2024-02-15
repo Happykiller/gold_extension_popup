@@ -1,10 +1,22 @@
 {
+  "bar": {
+    "background": "Background",
+    "home": "Accueil",
+    "logout": "Sortir"
+  },
   "common": {
     "done": "Entrer"
   },
+  "background": {
+    "title": "Background",
+    "name": "Entrer un nom"
+  },
   "home": {
     "title": "Accueil",
-    "name": "Entrer un nom"
+    "amount": "Montant",
+    "date": "Date",
+    "send": "Envoyer",
+    "description": "Description"
   },
   "login": {
     "title": "Authentification",

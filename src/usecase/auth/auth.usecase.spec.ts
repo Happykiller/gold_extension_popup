@@ -26,7 +26,18 @@ describe('AuthUsecase', () => {
     it('should get the session id', async () => {
       // arrange
       mockBackgroundService.send.mockResolvedValue({
-        sessionId: '45645456'
+        data: {
+          accessToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb2RlIjoiZmFybyIsImlkIjoxLCJpYXQiOjE3MDc5MjAzOTIsImV4cCI6MTcwNzk0OTE5Mn0.UoayTTvKw7wo38tjnvAC9Omxv_2YMH8U-NGoT0257s4",
+          id: 1,
+          code: "faro",
+          name_first: "Fabrice",
+          name_last: "Rosito",
+          description: "Admin",
+          mail: "fabrice.rosito@gmail.com",
+          creation: "1706429496000",
+          modification: "1706429496000",
+          language: "fr"
+        }
       });
       // act
       const response:AuthUsecaseModel = await usecase.execute({
@@ -35,7 +46,16 @@ describe('AuthUsecase', () => {
       });
       // assert
       expect(response).toEqual({
-        sessionId: '45645456'
+        accessToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb2RlIjoiZmFybyIsImlkIjoxLCJpYXQiOjE3MDc5MjAzOTIsImV4cCI6MTcwNzk0OTE5Mn0.UoayTTvKw7wo38tjnvAC9Omxv_2YMH8U-NGoT0257s4",
+        id: 1,
+        code: "faro",
+        name_first: "Fabrice",
+        name_last: "Rosito",
+        description: "Admin",
+        mail: "fabrice.rosito@gmail.com",
+        creation: "1706429496000",
+        modification: "1706429496000",
+        language: "fr"
       });
     });
 
