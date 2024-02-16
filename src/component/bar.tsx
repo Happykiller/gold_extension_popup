@@ -17,7 +17,7 @@ import '@component/bar.scss';
 import { routerStore } from '@component/routerStore';
 import { ContextStore, contextStore } from '@component/contextStore';
 
-const pages = ['background', 'home'];
+const pages = ['background', 'home', 'cb'];
 const settings = ['logout'];
 
 function Bar() {
@@ -37,9 +37,13 @@ function Bar() {
 
   const handleCloseNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(null);
-    switch(event.currentTarget.innerText.toLowerCase()) { 
+    switch(event.currentTarget.innerText.toLowerCase()) {
       case t('bar.home').toLowerCase(): {
         routeur.navigateTo("/");
+        break; 
+      }
+      case t('bar.cb').toLowerCase(): {
+        routeur.navigateTo("/cb");
         break; 
       }
       case t('bar.background').toLowerCase(): {

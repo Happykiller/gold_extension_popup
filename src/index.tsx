@@ -19,9 +19,11 @@ const darkTheme = createTheme({
 
 root.render(
   <React.StrictMode>
-    <ThemeProvider theme={darkTheme}>
-      <CssBaseline />
-      <RouterGold />
-    </ThemeProvider>
+    <div className='index'>
+      <ThemeProvider theme={darkTheme}>
+        <CssBaseline />
+        <RouterGold />
+      </ThemeProvider>
+    </div>
   </React.StrictMode>
 );

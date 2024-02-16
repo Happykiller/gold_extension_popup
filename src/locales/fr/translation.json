@@ -1,8 +1,12 @@
 {
   "bar": {
     "background": "Background",
+    "cb": "CB",
     "home": "Accueil",
     "logout": "Sortir"
+  },
+  "cb": {
+    "title": "CB"
   },
   "common": {
     "done": "Entrer"
