@@ -33,20 +33,24 @@ export const Home = () => {
       date: currentDate.format('YYYY-MM-DD'),
       description: currentDsc,
       account_id: parseInt(currentAccount),
-      status_id:  parseInt(currentStatus),
-      type_id:  parseInt(currentType),
-      third_id:  parseInt(currentThird),
-      category_id:  parseInt(currentCategory)
+      status_id: parseInt(currentStatus),
+      type_id: parseInt(currentType),
+      third_id: parseInt(currentThird),
+      category_id: parseInt(currentCategory)
     };
 
     if (currentAccountDest) {
       dto.account_dest_id = parseInt(currentAccountDest);
     }
 
-    const response:OperationUsecaseModel = await inversify.createOperationUsecase.execute(dto);
+    try {
+      const response:OperationUsecaseModel = await inversify.createOperationUsecase.execute(dto);
 
-    if(response.id) {
-      setCurrentMsg(`Operation crée avec l'id:${response.id}`);
+      if(response.id) {
+        setCurrentMsg(`Operation n°${response.id} crée`);
+      }
+    } catch (e) {
+      setCurrentMsg(`Erreur : ${e.message}`);
     }
   }
 
@@ -66,6 +70,7 @@ export const Home = () => {
               rowSpacing={1}
               columnSpacing={{ xs: 1, sm: 2, md: 3 }}
               >
+
               {/* Field amount */}
               <Grid 
                 xs={6}
@@ -191,6 +196,7 @@ export const Home = () => {
                       setCurrentAccountDest(e.target.value);
                     }}
                   >
+                    <MenuItem value=''>Aucun</MenuItem>
                     <MenuItem value='2'>Courant</MenuItem>
                     <MenuItem value='4'>Alimentation</MenuItem>
                     <MenuItem value='5'>Assurances</MenuItem>
@@ -390,8 +396,17 @@ export const Home = () => {
                   startIcon={<Send />}
                 ><Trans>home.send</Trans></Button>
               </Grid>
+
+              {/* Button submit */}
+              <Grid 
+                xs={12}
+                item
+                textAlign='center'
+              >
+                {currentMsg}
+              </Grid>
+
             </Grid>
-            {currentMsg}
           </form>
         </div>
       </div>
