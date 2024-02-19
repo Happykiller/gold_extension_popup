@@ -181,9 +181,9 @@ export const Home = () => {
               <Grid 
                 xs={6}
                 item
-                display="flex"
                 justifyContent="center"
                 alignItems="center"
+                display={currentType !== '3' ? "none" : "flex"}
               >
                 <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
                   <InputLabel>Compte Destination</InputLabel>
@@ -220,6 +220,14 @@ export const Home = () => {
                     <MenuItem value='23'>Vacances</MenuItem>
                   </Select>
                 </FormControl>
+              </Grid>
+              <Grid 
+                xs={6}
+                item
+                justifyContent="center"
+                alignItems="center"
+                display={currentType === '3' ? "none" : "flex"}
+              >
               </Grid>
 
               {/* Field status */}

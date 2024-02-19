@@ -1,6 +1,6 @@
 {
   "name": "gold_extension_popup",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Extension popoup for Gold service",
   "scripts": {
     "start": "webpack-dev-server --mode development --open --hot",
