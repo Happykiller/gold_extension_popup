@@ -1,19 +1,23 @@
 import * as React from 'react';
 import { Trans } from 'react-i18next';
 import { Done } from '@mui/icons-material';
-import { Box, Button, TextField } from '@mui/material';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import { Box, Button, InputAdornment, TextField } from '@mui/material';
 
 import '@component/login.scss';
+import { Footer } from '@component/footer';
+import inversify from '@src/common/inversify';
 import { routerStore } from '@component/routerStore';
 import { contextStore } from '@component/contextStore';
-import { AuthUsecaseModel } from '@src/usecase/auth/model/auth.usecase.model';
-import inversify from '@src/common/inversify';
+import { AuthUsecaseModel } from '@usecase/auth/model/auth.usecase.model';
 
 export const Login = () => {
   const routeur = routerStore();
-  const [currentLogin, setCurrentLogin] = React.useState('');
-  const [currentPassword, setCurrentPassword] = React.useState('');
   const [currentMsg, setCurrentMsg] = React.useState('');
+  const [currentLogin, setCurrentLogin] = React.useState('');
+  const [passVisible, setPassVisible] = React.useState(false);
+  const [currentPassword, setCurrentPassword] = React.useState('');
 
   let errorMessage = <div></div>;
   if(currentMsg) {
@@ -57,6 +61,7 @@ export const Login = () => {
               gap: '10px;'
             }}
           >
+            {/* Field Login */}
             <TextField
               sx={{ marginRight:1}}
               label={<Trans>login.login</Trans>}
@@ -67,16 +72,34 @@ export const Login = () => {
                 setCurrentLogin(e.target.value);
               }}
             />
+
+            {/* Field Password */}
             <TextField
               sx={{ marginRight:1}}
               label={<Trans>login.password</Trans>}
               variant="standard"
               size="small"
+              type={(passVisible)?'text':'password'}
               onChange={(e) => { 
                 e.preventDefault();
                 setCurrentPassword(e.target.value);
               }}
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment 
+                    position="end"
+                    onClick={(e) => { 
+                      e.preventDefault();
+                      setPassVisible(!passVisible);
+                    }}
+                  >
+                    {(passVisible?<VisibilityOffIcon/>:<VisibilityIcon />)}
+                  </InputAdornment>
+                ),
+              }}
             />
+
+            {/* Submit button */}
             <Button 
               type="submit"
               variant="contained"
@@ -88,6 +111,7 @@ export const Login = () => {
           </Box>
         </form>
       </div>
+      <Footer />
     </div>
   )
 };

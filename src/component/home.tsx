@@ -7,8 +7,9 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { Button, FormControl, Grid, InputLabel, MenuItem, Select, TextField } from '@mui/material';
 
-import '@component/home.scss';
+import '@component/common.scss';
 import Bar from '@component/bar';
+import { Footer } from '@component/footer';
 import inversify from '@src/common/inversify';
 import { OperationUsecaseModel } from '@usecase/operation/model/operation.usecase.model';
 import { CreateOperationUsecaseDto } from '@usecase/operation/dto/create.operation.usecase.dto';
@@ -57,10 +58,7 @@ export const Home = () => {
   return (
     <div>
       <Bar/>
-      <div className="home">
-        <div className='title'>
-          <Trans>home.title</Trans>
-        </div>
+      <div className="app">
         <div>
           <form
             onSubmit={handleClick}
@@ -131,6 +129,32 @@ export const Home = () => {
                     setCurrentDsc(e.target.value);
                   }}
                 />
+              </Grid>
+
+              {/* Field type */}
+              <Grid 
+                xs={6}
+                item
+                display="flex"
+                justifyContent="center"
+                alignItems="center"
+              >
+                <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
+                  <InputLabel>Type</InputLabel>
+                  <Select
+                    value={currentType}
+                    variant="standard"
+                    size="small"
+                    onChange={(e) => { 
+                      e.preventDefault();
+                      setCurrentType(e.target.value);
+                    }}
+                  >
+                    <MenuItem value='1'>Crédit</MenuItem>
+                    <MenuItem value='2'>Débit</MenuItem>
+                    <MenuItem value='3'>Virement</MenuItem>
+                  </Select>
+                </FormControl>
               </Grid>
 
               {/* Field account */}
@@ -251,32 +275,6 @@ export const Home = () => {
                   >
                     <MenuItem value='1'>A suivre</MenuItem>
                     <MenuItem value='2'>Réconcilier</MenuItem>
-                  </Select>
-                </FormControl>
-              </Grid>
-
-              {/* Field type */}
-              <Grid 
-                xs={6}
-                item
-                display="flex"
-                justifyContent="center"
-                alignItems="center"
-              >
-                <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
-                  <InputLabel>Type</InputLabel>
-                  <Select
-                    value={currentType}
-                    variant="standard"
-                    size="small"
-                    onChange={(e) => { 
-                      e.preventDefault();
-                      setCurrentType(e.target.value);
-                    }}
-                  >
-                    <MenuItem value='1'>Crédit</MenuItem>
-                    <MenuItem value='2'>Débit</MenuItem>
-                    <MenuItem value='3'>Virement</MenuItem>
                   </Select>
                 </FormControl>
               </Grid>
@@ -418,6 +416,7 @@ export const Home = () => {
           </form>
         </div>
       </div>
+      <Footer />
     </div>
   )
 };

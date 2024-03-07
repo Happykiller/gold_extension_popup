@@ -3,7 +3,7 @@ import { Trans } from 'react-i18next';
 import { Send } from '@mui/icons-material';
 import { Box, Button, TextField } from '@mui/material';
 
-import '@component/background.scss';
+import '@component/common.scss';
 import inversify from '@src/common/inversify';
 import { HelloUsecaseModel } from '@usecase/hello/model/hello.usecase.model';
 import Bar from '@component/bar';
@@ -25,7 +25,7 @@ export const Background = () => {
   return (
     <div>
       <Bar/>
-      <div className="background">
+      <div className="app">
         <div className='title'>
           <Trans>background.title</Trans>
         </div>

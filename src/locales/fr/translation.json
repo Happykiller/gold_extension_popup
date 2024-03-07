@@ -15,6 +15,15 @@
     "title": "Background",
     "name": "Entrer un nom"
   },
+  "footer": {
+    "mail": "Mail",
+    "roadmap": "Roadmap",
+    "issues": "Anomalies",
+    "version": {
+      "ext": "Ext:",
+      "apis": "Apis:"
+    }
+  },
   "home": {
     "title": "Accueil",
     "amount": "Montant",

@@ -17,7 +17,7 @@ import '@component/bar.scss';
 import { routerStore } from '@component/routerStore';
 import { ContextStore, contextStore } from '@component/contextStore';
 
-const pages = ['background', 'home', 'cb'];
+const pages = ['home'];
 const settings = ['logout'];
 
 function Bar() {
@@ -40,14 +40,6 @@ function Bar() {
     switch(event.currentTarget.innerText.toLowerCase()) {
       case t('bar.home').toLowerCase(): {
         routeur.navigateTo("/");
-        break; 
-      }
-      case t('bar.cb').toLowerCase(): {
-        routeur.navigateTo("/cb");
-        break; 
-      }
-      case t('bar.background').toLowerCase(): {
-        routeur.navigateTo("/background");
         break; 
       }
     } 
