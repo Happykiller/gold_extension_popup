@@ -15,7 +15,7 @@ import { Trans, useTranslation } from 'react-i18next';
 
 import '@component/bar.scss';
 import { routerStore } from '@component/routerStore';
-import { ContextStore, contextStore } from '@component/contextStore';
+import { ContextStoreModel, contextStore } from '@component/contextStore';
 
 const pages = ['home'];
 const settings = ['logout'];
@@ -23,7 +23,7 @@ const settings = ['logout'];
 function Bar() {
   const { t } = useTranslation();
   const routeur = routerStore();
-  const context:ContextStore = contextStore();
+  const context:ContextStoreModel = contextStore();
   const reset = contextStore((state) => state.reset);
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);

@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import { persist, createJSONStorage } from 'zustand/middleware';
 
-export interface ContextStore {
+export interface ContextStoreModel {
   id: string
   code: string
   access_token: string
@@ -18,7 +18,7 @@ const initialState:any = {
   name_last: null
 }
 
-const contextPersist = persist<ContextStore>(
+const contextPersist = persist<ContextStoreModel>(
   (set) => ({
     ...initialState,
     reset: () => set(initialState)
@@ -29,4 +29,4 @@ const contextPersist = persist<ContextStore>(
   }
 );
 
-export const contextStore = create<ContextStore>()(contextPersist);
+export const contextStore = create<ContextStoreModel>()(contextPersist);

@@ -5,14 +5,13 @@ import { Login } from '@component/login';
 import { CODES } from '@src/common/codes';
 import { Home } from '@src/component/home';
 import inversify from '@src/common/inversify';
-import { Background } from '@component/background';
 import { routerStore } from '@component/routerStore';
-import { ContextStore, contextStore } from '@component/contextStore';
+import { ContextStoreModel, contextStore } from '@component/contextStore';
 
-export const RouterGold = () => {
+export const Router = () => {
   const routeur = routerStore();
-  const context:ContextStore = contextStore();
-  const reset = contextStore((state) => state.reset);
+  const context:ContextStoreModel = contextStore();
+  const reset = contextStore((state:any) => state.reset);
   const [qry, setQry] = React.useState({
     loading: null,
     data: null,
@@ -26,7 +25,7 @@ export const RouterGold = () => {
         loading: true
       }));
       inversify.getSessionInfoUsecase.execute()
-        .then((response) => {
+        .then((response:any) => {
           if(response.message !== CODES.SUCCESS) {
             reset();
             routeur.navigateTo('/login');
@@ -63,8 +62,6 @@ export const RouterGold = () => {
         case '/':
         case '/home':
           return <div><Home /></div>
-        case '/background':
-          return <div><Background /></div>
         default:
           return <div><Home /></div>
       }
@@ -72,4 +69,6 @@ export const RouterGold = () => {
   } else if (!qry.loading && !qry.error) {
     return <Login />
   }
+
+  console.log(qry)
 };

@@ -2,7 +2,7 @@ import { CODES } from '@src/common/codes';
 import { ORDERS } from '@src/common/orders';
 import { Inversify } from '@src/common/inversify';
 
-export class GetSessionInfoUsecase {
+export default class GetSessionInfoUsecase {
 
   SessionInfo:any;
 
@@ -37,6 +37,7 @@ export class GetSessionInfoUsecase {
         data: response.data
       }
     } catch (e: any) {
+      this.inversify.loggerService.log(`Error on GetSessionInfoUsecase = > ${e.message}`);
       if(e.message in CODES) {
         return {
           message: e.message,

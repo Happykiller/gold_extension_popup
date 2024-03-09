@@ -5,7 +5,7 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 import '@src/i18n';
 import '@src/index.scss';
-import { RouterGold } from '@component/router_gold';
+import { Router } from '@component/router';
 
 const root = createRoot(
   document.getElementById('root') as HTMLElement
@@ -22,7 +22,7 @@ root.render(
     <div className='index'>
       <ThemeProvider theme={darkTheme}>
         <CssBaseline />
-        <RouterGold />
+        <Router />
       </ThemeProvider>
     </div>
   </React.StrictMode>
