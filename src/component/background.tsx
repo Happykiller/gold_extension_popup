@@ -6,7 +6,7 @@ import { Box, Button, TextField } from '@mui/material';
 import '@component/common.scss';
 import inversify from '@src/common/inversify';
 import { HelloUsecaseModel } from '@usecase/hello/model/hello.usecase.model';
-import Bar from '@component/bar';
+import Bar from '@src/component/molecule/bar';
 
 export const Background = () => {
   const [currentName, setCurrentName] = React.useState('');

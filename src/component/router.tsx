@@ -5,8 +5,8 @@ import { Login } from '@component/login';
 import { CODES } from '@src/common/codes';
 import { Home } from '@src/component/home';
 import inversify from '@src/common/inversify';
-import { routerStore } from '@component/routerStore';
-import { ContextStoreModel, contextStore } from '@component/contextStore';
+import { routerStore } from '@src/component/store/routerStore';
+import { ContextStoreModel, contextStore } from '@src/component/store/contextStore';
 
 export const Router = () => {
   const routeur = routerStore();
@@ -69,6 +69,4 @@ export const Router = () => {
   } else if (!qry.loading && !qry.error) {
     return <Login />
   }
-
-  console.log(qry)
 };

@@ -13,9 +13,9 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import { Trans, useTranslation } from 'react-i18next';
 
-import '@component/bar.scss';
-import { routerStore } from '@component/routerStore';
-import { ContextStoreModel, contextStore } from '@component/contextStore';
+import '@component/molecule/bar.scss';
+import { routerStore } from '@src/component/store/routerStore';
+import { ContextStoreModel, contextStore } from '@src/component/store/contextStore';
 
 const pages = ['home'];
 const settings = ['logout'];

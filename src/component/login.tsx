@@ -6,10 +6,10 @@ import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { Box, Button, InputAdornment, TextField } from '@mui/material';
 
 import '@component/login.scss';
-import { Footer } from '@component/footer';
+import { Footer } from '@src/component/molecule/footer';
 import inversify from '@src/common/inversify';
-import { routerStore } from '@component/routerStore';
-import { contextStore } from '@component/contextStore';
+import { routerStore } from '@src/component/store/routerStore';
+import { contextStore } from '@src/component/store/contextStore';
 import { AuthUsecaseModel } from '@usecase/auth/model/auth.usecase.model';
 
 export const Login = () => {
@@ -91,6 +91,9 @@ export const Login = () => {
                     onClick={(e) => { 
                       e.preventDefault();
                       setPassVisible(!passVisible);
+                    }}
+                    sx={{
+                      cursor: 'pointer'
                     }}
                   >
                     {(passVisible?<VisibilityOffIcon/>:<VisibilityIcon />)}

@@ -9,7 +9,11 @@
     "title": "CB"
   },
   "common": {
-    "done": "Entrer"
+    "done": "Valider",
+    "cancel": "Annuler",
+    "clear": "Aucun",
+    "create": "Créer",
+    "loading": "Chargement..."
   },
   "background": {
     "title": "Background",
@@ -29,12 +33,20 @@
     "amount": "Montant",
     "date": "Date",
     "send": "Envoyer",
-    "description": "Description"
+    "description": "Description",
+    "account": "Compte",
+    "account_dest": "Destination",
+    "category": "Catégorie"
   },
   "login": {
     "title": "Authentification",
     "login": "Identifiant",
     "password": "Mot de passe",
     "error": "Erreur : "
+  },
+  "operation": {
+    "third-otherDebit": "Débiteur",
+    "third-otherCredit": "Créditeur",
+    "category-other": "Autre"
   }
 }
