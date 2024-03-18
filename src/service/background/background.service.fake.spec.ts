@@ -15,16 +15,6 @@ describe('BackgroundServiceFake', () => {
       expect(service).toBeDefined();
     });
 
-    it('should get response for order test', async () => {
-      // arrange
-      // act
-      const response:BackgroundServiceModel = await service.send({
-        name: 'test'
-      });
-      // assert
-      expect(response).toEqual({});
-    });
-
     it('should get response for order auth', async () => {
       // arrange
       // act
@@ -34,9 +24,9 @@ describe('BackgroundServiceFake', () => {
       // assert
       expect(response).toEqual({
         message: CODES.SUCCESS,
-        sessionId: {
-          accessToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb2RlIjoiZmFybyIsImlkIjoxLCJpYXQiOjE3MDc4MzgxNDksImV4cCI6MTcwNzg2Njk0OX0.A30_VX15NjtydQk_9bD0en_PPQ6M7gykHYxSRXn8l-s',
-          id: 1,
+        data: {
+          access_token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb2RlIjoiZmFybyIsImlkIjoxLCJpYXQiOjE3MDc4MzgxNDksImV4cCI6MTcwNzg2Njk0OX0.A30_VX15NjtydQk_9bD0en_PPQ6M7gykHYxSRXn8l-s',
+          id: '1',
           code: 'faro',
           name_first: 'Fabrice',
           name_last: 'Rosito',

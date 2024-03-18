@@ -15,7 +15,7 @@ export default class BackgroundServiceFake extends BackgroundService {
           message: CODES.SUCCESS,
           data: {
             access_token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb2RlIjoiZmFybyIsImlkIjoxLCJpYXQiOjE3MDc4MzgxNDksImV4cCI6MTcwNzg2Njk0OX0.A30_VX15NjtydQk_9bD0en_PPQ6M7gykHYxSRXn8l-s',
-            id: 1,
+            id: '1',
             code: 'faro',
             name_first: 'Fabrice',
             name_last: 'Rosito',
@@ -94,7 +94,7 @@ export default class BackgroundServiceFake extends BackgroundService {
         response = {
           message: CODES.SUCCESS,
           data: {
-            "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb2RlIjoiZmFybyIsImlkIjoiNjVkODliOWVkY2Q4Y2JiYTlhN2NlNjUxIiwiaWF0IjoxNzA4NzYzNTgxLCJleHAiOjE3MDg3OTIzODF9.o4cQ-j1FEX0RgTYRm5R2ivt2770An_b2XHsYgmcgjdA",
+            "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb2RlIjoiZmFybyIsImlkIjoiNjVkODliOWVkY2Q4Y2JiYTlhN2NlNjUxIiwiaWF0IjoxNzA4NzYzNTgxLCJleHAiOjE3MDg3OTIzODF9.o4cQ-j1FEX0RgTYRm5R2ivt2770An_b2XHsYgmcgjdA",
             "id": "65d89b9edcd8cbba9a7ce651",
             "code": "faro",
             "name_first": "fabrice",
@@ -109,10 +109,72 @@ export default class BackgroundServiceFake extends BackgroundService {
           message: CODES.FAIL
         };
       }
+    } else if (dto.name === ORDERS.GET_OPE_CATEGORIES) {
+      /* istanbul ignore next */
+      if (true) {
+        response = {
+          message: CODES.SUCCESS,
+          data: [
+            {
+                id: 1,
+                label: 'operation.category-other'
+            }
+          ]
+        };
+      } else {
+        /* istanbul ignore next */
+        response = {
+          message: CODES.FAIL
+        };
+      }
+    } else if (dto.name === ORDERS.GET_OPE_THIRDS) {
+      /* istanbul ignore next */
+      if (true) {
+        response = {
+          message: CODES.SUCCESS,
+          data: [
+            {
+                id: 1,
+                label: 'operation.third-otherCredit'
+            }
+          ]
+        };
+      } else {
+        /* istanbul ignore next */
+        response = {
+          message: CODES.FAIL
+        };
+      }
+    } else if (dto.name === ORDERS.GET_ACCOUNTS) {
+      /* istanbul ignore next */
+      if (true) {
+        response = {
+          message: CODES.SUCCESS,
+          data: [
+            {
+              id: 1,
+              type_id: 1,
+              parent_account_id: null,
+              label: 'Mes comptes',
+              description: null,
+              balance_reconcilied: 0,
+              balance_not_reconcilied: 0,
+              creator_id: 1,
+              creation_date: '1530129754000',
+              modificator_id: null,
+              modification_date: '1706459811000'
+            }
+          ]
+        };
+      } else {
+        /* istanbul ignore next */
+        response = {
+          message: CODES.FAIL
+        };
+      }
     } else {
       throw new Error('Method not implemented.');
     }
-    
     
     return Promise.resolve(response);
   }

@@ -36,7 +36,8 @@
     "description": "Description",
     "account": "Compte",
     "account_dest": "Destination",
-    "category": "Catégorie"
+    "category": "Catégorie",
+    "third": "Tier"
   },
   "login": {
     "title": "Authentification",
